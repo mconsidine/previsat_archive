@@ -18,7 +18,7 @@
  * _______________________________________________________________________________________________________
  *
  * Nom du fichier
- * >    evenementsstationspatiale.h
+ * >    lancements.h
  *
  * Localisation
  * >    configuration
@@ -27,26 +27,28 @@
  * >
  *
  * Description
- * >    Lecture du fichier xml contenant les evenements de la station spatiale
+ * >    Lecture du fichier contenant les lancements a venir
  *
  * Auteur
  * >    Astropedia
  *
  * Date de creation
- * >    19 juin 2022
+ * >    10 juillet 2024
  *
  * Date de revision
- * >    10 juillet 2024
+ * >
  *
  */
 
-#ifndef EVENEMENTSSTATIONSPATIALE_H
-#define EVENEMENTSSTATIONSPATIALE_H
+#ifndef LANCEMENTS_H
+#define LANCEMENTS_H
+
+#include <QList>
 
 
-struct EvenementsStation;
+struct CalendrierLancements;
 
-class EvenementsStationSpatiale
+class Lancements
 {
 public:
 
@@ -58,11 +60,11 @@ public:
      * Methodes publiques
      */
     /**
-     * @brief LectureEvenementsStationSpatiale Lecture du fichier NASA contenant les evenements de la Station Spatiale
-     * @return evenements lies a la station spatiale
+     * @brief LectureCalendrierLancements Lecture du fichier contenant le calendrier des lancements
+     * @return calendrier des lancements
      * @throw Exception
      */
-    static EvenementsStation LectureEvenementsStationSpatiale();
+    static QList<CalendrierLancements> LectureCalendrierLancements();
 
 
     /*
@@ -98,4 +100,4 @@ private:
 
 };
 
-#endif // EVENEMENTSSTATIONSPATIALE_H
+#endif // LANCEMENTS_H
