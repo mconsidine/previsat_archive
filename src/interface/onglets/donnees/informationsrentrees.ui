@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>InformationsLancements</class>
- <widget class="QFrame" name="InformationsLancements">
+ <class>InformationsRentrees</class>
+ <widget class="QFrame" name="InformationsRentrees">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,9 +11,9 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string notr="true"/>
+   <string/>
   </property>
-  <widget class="QTableWidget" name="lancements">
+  <widget class="QTableWidget" name="rentrees">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -37,7 +37,7 @@
     <bool>false</bool>
    </property>
    <property name="alternatingRowColors">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="selectionMode">
     <enum>QAbstractItemView::SingleSelection</enum>
@@ -52,14 +52,14 @@
     <bool>false</bool>
    </property>
    <property name="columnCount">
-    <number>5</number>
+    <number>7</number>
    </property>
    <attribute name="verticalHeaderVisible">
     <bool>false</bool>
    </attribute>
    <column>
     <property name="text">
-     <string extracomment="Date and hour">Date</string>
+     <string>Nom</string>
     </property>
     <property name="font">
      <font>
@@ -69,7 +69,7 @@
    </column>
    <column>
     <property name="text">
-     <string>Heure</string>
+     <string>Norad</string>
     </property>
     <property name="font">
      <font>
@@ -79,7 +79,7 @@
    </column>
    <column>
     <property name="text">
-     <string>Lancement</string>
+     <string>COSPAR</string>
     </property>
     <property name="font">
      <font>
@@ -89,7 +89,7 @@
    </column>
    <column>
     <property name="text">
-     <string>Site</string>
+     <string extracomment="Date and hour">Date de rentrée</string>
     </property>
     <property name="font">
      <font>
@@ -99,7 +99,27 @@
    </column>
    <column>
     <property name="text">
-     <string>Détails</string>
+     <string>Taille</string>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Pays</string>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Type de message</string>
     </property>
     <property name="font">
      <font>
@@ -108,7 +128,7 @@
     </property>
    </column>
   </widget>
-  <widget class="QPushButton" name="majLancements">
+  <widget class="QPushButton" name="majRentrees">
    <property name="geometry">
     <rect>
      <x>390</x>
@@ -118,7 +138,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Mettre à jour les informations de lancements...</string>
+    <string>Mettre à jour les informations de rentrées...</string>
    </property>
   </widget>
  </widget>

@@ -18,76 +18,85 @@
  * _______________________________________________________________________________________________________
  *
  * Nom du fichier
- * >    soleil.h
+ * >    informationsrentrees.h
  *
  * Localisation
- * >    librairies.corps.systemesolaire
+ * >    interface.onglets.donnees
  *
  * Heritage
- * >    Corps
+ * >    QFrame
  *
  * Description
- * >    Utilitaires lies a la position du Soleil
+ * >    Onglet Rentrees
  *
  * Auteur
  * >    Astropedia
  *
  * Date de creation
- * >    11 juillet 2011
+ * >    11 juillet 2024
  *
  * Date de revision
- * >    20 juillet 2024
+ * >
  *
  */
 
-#ifndef SOLEIL_H
-#define SOLEIL_H
+#ifndef INFORMATIONSRENTREES_H
+#define INFORMATIONSRENTREES_H
 
-#include "librairies/corps/corps.h"
-#include "soleilconst.h"
+#include <QFrame>
 
 
-class Soleil : public Corps
+namespace Ui {
+class InformationsRentrees;
+}
+
+class DonneesSatellite;
+class QTableWidgetItem;
+
+class InformationsRentrees : public QFrame
 {
+    Q_OBJECT
+
 public:
 
     /*
      *  Constructeurs
      */
     /**
-     * @brief Soleil Constructeur par defaut
+     * @brief InformationsRentrees Constructeur par defaut
+     * @param[in] parent parent
      */
-    Soleil();
+    explicit InformationsRentrees(QWidget *parent = nullptr);
 
-    /**
-     * @brief Soleil Constructeur a partir du vecteur position
-     * @param[in] pos vecteur position du Soleil
-     */
-    explicit Soleil(const Vecteur3D &pos);
 
     /*
-     * Methodes publiques
+     * Destructeur
      */
-    /**
-     * @brief CalculPositionSimp Calcul simplifie de la position du Soleil
-     * @cite Astronomical Algorithms 2nd edition de Jean Meeus, p163-164
-     * @param[in] date date
-     */
-    void CalculPositionSimp(const Date &date);
-
-    /**
-     * @brief CalculPosVit Calcul de la position-vitesse du corps
-     * @param[in] date date
-     */
-    void CalculPosVit(const Date &date) override {
-        CalculPositionSimp(date);
-    }
+    ~InformationsRentrees();
 
 
     /*
      * Accesseurs
      */
-    double distanceUA() const;
+
+    /*
+     * Modificateurs
+     */
+
+    /*
+     * Methodes publiques
+     */
+
+public slots:
+
+    void changeEvent(QEvent *evt);
+
+    void show();
+
+
+signals:
+
+    void AfficherMessageStatut(const QString &, const int duree = -1);
 
 
 protected:
@@ -106,23 +115,18 @@ private:
     /*
      * Variables privees
      */
-    double _distanceUA;
-
+    Ui::InformationsRentrees *_ui;
+    DonneesSatellite *_donneesSatellite;
 
     /*
      * Methodes privees
      */
 
-    /**
-     * @brief CalculEphemLeverMeridienCoucher Calcul des ephemerides du Soleil pour determiner les heures de lever/meriden/coucher
-     * @param[in] date date
-     * @param[in] observateur observateur
-     */
-    void CalculEphemLeverMeridienCoucher(const Date &date,
-                                         const Observateur &observateur) override;
+private slots:
 
+    void on_majRentrees_clicked();
+    void on_rentrees_itemDoubleClicked(QTableWidgetItem *item);
 
 };
 
-
-#endif // SOLEIL_H
+#endif // INFORMATIONSRENTREES_H

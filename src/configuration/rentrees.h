@@ -18,76 +18,63 @@
  * _______________________________________________________________________________________________________
  *
  * Nom du fichier
- * >    soleil.h
+ * >    rentrees.h
  *
  * Localisation
- * >    librairies.corps.systemesolaire
+ * >    configuration
  *
  * Heritage
- * >    Corps
+ * >
  *
  * Description
- * >    Utilitaires lies a la position du Soleil
+ * >    Lecture du fichier contenant les rentrees atmospheriques
  *
  * Auteur
  * >    Astropedia
  *
  * Date de creation
- * >    11 juillet 2011
+ * >    11 juillet 2024
  *
  * Date de revision
- * >    20 juillet 2024
+ * >
  *
  */
 
-#ifndef SOLEIL_H
-#define SOLEIL_H
+#ifndef RENTREES_H
+#define RENTREES_H
 
-#include "librairies/corps/corps.h"
-#include "soleilconst.h"
+#include <QList>
 
 
-class Soleil : public Corps
+class QDomNode;
+struct RentreesAtmospheriques;
+
+class Rentrees
 {
 public:
 
     /*
      *  Constructeurs
      */
-    /**
-     * @brief Soleil Constructeur par defaut
-     */
-    Soleil();
-
-    /**
-     * @brief Soleil Constructeur a partir du vecteur position
-     * @param[in] pos vecteur position du Soleil
-     */
-    explicit Soleil(const Vecteur3D &pos);
 
     /*
      * Methodes publiques
      */
     /**
-     * @brief CalculPositionSimp Calcul simplifie de la position du Soleil
-     * @cite Astronomical Algorithms 2nd edition de Jean Meeus, p163-164
-     * @param[in] date date
+     * @brief LectureFichierRentrees Lecture du fichier contenant les rentrees atmospheriques
+     * @return rentrees atmospheriques
+     * @throw Exception
      */
-    void CalculPositionSimp(const Date &date);
-
-    /**
-     * @brief CalculPosVit Calcul de la position-vitesse du corps
-     * @param[in] date date
-     */
-    void CalculPosVit(const Date &date) override {
-        CalculPositionSimp(date);
-    }
+    static QList<RentreesAtmospheriques> LectureFichierRentrees();
 
 
     /*
      * Accesseurs
      */
-    double distanceUA() const;
+
+    /*
+     * Modificateurs
+     */
 
 
 protected:
@@ -106,23 +93,13 @@ private:
     /*
      * Variables privees
      */
-    double _distanceUA;
-
 
     /*
      * Methodes privees
      */
-
-    /**
-     * @brief CalculEphemLeverMeridienCoucher Calcul des ephemerides du Soleil pour determiner les heures de lever/meriden/coucher
-     * @param[in] date date
-     * @param[in] observateur observateur
-     */
-    void CalculEphemLeverMeridienCoucher(const Date &date,
-                                         const Observateur &observateur) override;
+    static RentreesAtmospheriques LectureRentree(const QDomNode &sat);
 
 
 };
 
-
-#endif // SOLEIL_H
+#endif // RENTREES_H
