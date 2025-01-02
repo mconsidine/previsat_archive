@@ -18,19 +18,21 @@
  * _______________________________________________________________________________________________________
  *
  * Date de creation
- * >    1er mai 2022
+ * >    2 janvier 2024
  *
  * Date de revision
- * >    2 janvier 2025
+ * >
  *
  */
 
 
-/** \page Outils Outils
+/**
+\page GestionnaireIcones Gestionnaire icônes satellites
 
-- \subpage GestionnaireGP
-- \subpage GestionnaireIcones
-- \subpage GestionnaireTLE
-- \subpage MajTLE
+L'outil <b>Gestionnaire icônes satellites</b> permet d'importer ou de supprimer des fichiers png représentant les satellites.
+
+\image html gestionnaireicones.png
+
+La liste contient les fichiers au format png dans un répertoire dédié de PreviSat. Un bouton permet l'importation d'une icône. Le bouton 'Supprimer' permet d'effacer les icônes sélectionnées dans la liste.
 
 */

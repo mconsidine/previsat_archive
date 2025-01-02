@@ -18,19 +18,21 @@
  * _______________________________________________________________________________________________________
  *
  * Date de creation
- * >    1er mai 2022
+ * >    2 janvier 2025
  *
  * Date de revision
- * >    2 janvier 2025
+ * >
  *
  */
 
 
-/** \page Outils Outils
+/**
+\page GestionnaireIcones Satellite icons management
 
-- \subpage GestionnaireGP
-- \subpage GestionnaireIcones
-- \subpage GestionnaireTLE
-- \subpage MajTLE
+The <b>Satellite icons Management</b> tool allows you to import or delete icons at png format.
+
+\image html gestionnaireicones.png
+
+The list contains the icons at png format in a dedicated directory of PreviSat. A button allows the import of a satellite icon. The 'Remove' button allows you to delete the icon files selected in the list.
 
 */
